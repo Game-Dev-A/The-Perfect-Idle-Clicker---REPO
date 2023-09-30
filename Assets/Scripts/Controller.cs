@@ -5,27 +5,31 @@ using BreakInfinity;
 
 public class Controller : MonoBehaviour
 {
-    public TMP_Text points;
+    [SerializeField] private TMP_Text points;
+    [SerializeField] private TMP_Text pointsPower;
 
     public Data data;
+    public UpgradeManager upgradeManager;
+
+    public BigDouble ClickPower() => 1 + data.clickUpgradeLevel;
+
     // Start is called before the first frame update
     void Start()
     {
         data = new Data();
-
-        data.points = BigDouble.Add(data.points, 10);
+        upgradeManager.StartUpgradeManager();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        points.text = data.points + " Points";
+        pointsPower.text = "+" + ClickPower() + " Points";
     }
+
 
     public void OnClick()
     {
-        data.points *= 100;
-        points.text = "Points: " + data.points;
-        Debug.Log(points);
+        data.points += ClickPower();
     }
 }
