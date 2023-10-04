@@ -9,6 +9,8 @@ public class Data
 
     public Data()
     {
-        points = 0f;
+        points = 0f;  //I set the value of points to 0
+
+        clickUpgradeLevel = Methods.CreateList<BigDouble>(3);  //I set the number of upgradeClick
     }
 }

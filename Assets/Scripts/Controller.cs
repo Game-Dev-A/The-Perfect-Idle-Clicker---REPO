@@ -10,7 +10,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private TMP_Text pointsPower;  //I get the power of points text
 
     public Data data; //I call the Data script
-    //public UpgradeManager upgradeManager; //I call the UpgradeManager script
+    /*public UpgradeManager upgradeManager; //I call the UpgradeManager script*/
     public static Controller instance;  //I create the instance for the Controller script
 
     private void Awake() => instance = this;  //This method will start before the Start() method; I set the instance for the Controller script
@@ -30,7 +30,6 @@ public class Controller : MonoBehaviour
         points.text = data.points + " Points";  //I change the text of the total points
         pointsPower.text = "+" + ClickPower() + " Points";  //I change the text of the power of points
     }
-
 
     public void OnClick()
     {
